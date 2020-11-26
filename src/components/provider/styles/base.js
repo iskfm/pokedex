@@ -1,27 +1,4 @@
 import { css } from 'styled-components';
-// import { typeScale, colors, fonts } from '../utils/variables';
-
-// body {
-//   font-family: ${fonts.montserratRegular};
-//   background-color: ${colors.white};
-//   color: ${colors.text};
-//   font-weight: 500;
-// }
-
-// a {
-//   color: ${colors.main};
-//   text-decoration: none;
-//   font-weight: 600;
-
-//   &:hover {
-//     color: ${colors.secondary};
-//     text-decoration: underline;
-//   }
-
-//   &:active {
-//     color: ${colors.main};
-//   }
-// }
 
 const base = css`
   html,

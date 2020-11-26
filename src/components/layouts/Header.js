@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router';
 
-// import { colors, fonts } from 'components/provider';
-
 const Header = ({ history }) => (
   <HeaderContainer>
     <Logo onClick={() => history.push('/')}>pokedex</Logo>
@@ -19,7 +17,6 @@ const HeaderContainer = styled('div')`
   z-index: 9;
 `;
 
-// font-family: ${fonts.montserratBold};
 const Logo = styled('h1')`
   color: white;
   font-weight: bold;

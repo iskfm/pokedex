@@ -1,49 +1,28 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const animation = keyframes`
-  0% {
+const rotate360 = keyframes`
+  from {
     transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(360deg);
   }
 `;
 
-const LoadingContainer = styled('div')`
-  display: inline-block;
-  width: ${(props) => `${props.width}${props.sizeUnit}`};
-  height: ${(props) => `${props.height}${props.sizeUnit}`};
-  :after {
-    content: ' ';
-    display: block;
-    width: ${(props) => `${props.size}${props.sizeUnit}`};
-    height: ${(props) => `${props.size}${props.sizeUnit}`};
-    margin: 1px;
-    border-radius: 50%;
-    border: 5px solid ${(props) => props.color};
-    border-color: ${(props) => props.color} transparent
-      ${(props) => props.color} transparent;
-    animation: ${animation} 1.2s linear infinite;
-  }
+const Spinner = styled.div`
+  animation: ${rotate360} 1s linear infinite;
+  transform: translateZ(0);
+  border-top: 2px solid grey;
+  border-right: 2px solid grey;
+  border-bottom: 2px solid grey;
+  border-left: 4px solid #005bbd;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 `;
 
-const Loading = ({ color, size, sizeUnit, width, height }) => (
-  <LoadingContainer
-    color={color}
-    size={size}
-    sizeUnit={sizeUnit}
-    width={width}
-    height={height}
-  />
-);
-
-Loading.defaultProps = {
-  width: 40,
-  height: 40,
-  size: 40,
-  color: 'black',
-  sizeUnit: 'px',
-};
+const Loading = () => <Spinner />;
 
 export default Loading;

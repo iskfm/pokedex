@@ -1,7 +1,7 @@
-const IMAGE_STORAGE =
-  process.env.IMAGE_STORAGE ||
+const IMAGE =
+  process.env.IMAGE ||
   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world';
 
-const RenderImage = (id) => `${IMAGE_STORAGE}/${id}.svg`;
+const RenderImage = (id) => `${IMAGE}/${id}.svg`;
 
 export default RenderImage;

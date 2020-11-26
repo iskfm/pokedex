@@ -27,6 +27,19 @@ const Container = styled.div.attrs()`
   @media (max-width: 576px) {
     padding-right: 16px;
     padding-left: 16px;
+    max-width: 540px;
+  }
+  @media (max-width: 768px) {
+    max-width: 720px;
+  }
+  @media (max-width: 992px) {
+    max-width: 960px;
+  }
+  @media (max-width: 1200px) {
+    max-width: 1140px;
+  }
+  @media (max-width: 1540px) {
+    max-width: 1141px;
   }
 `;
 

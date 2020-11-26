@@ -7,6 +7,9 @@ import { Header, Footer } from './components/layouts';
 const Pokemon = React.lazy(() =>
   import(/* webpackChunkName: 'pokemon' */ './modules/list'),
 );
+const PokemonDetail = React.lazy(() =>
+  import(/* webpackChunkName: 'pokemon-detail' */ './modules/detail'),
+);
 
 const App = () => (
   <>
@@ -15,8 +18,7 @@ const App = () => (
       <Switch>
         <Route path="/" component={Pokemon} exact />
         <Route path="/page/:page" component={Pokemon} />
-        {/* <Route path="/type/:type" component={PokemonType} />
-      <Route path="/pokemon/:pokemonId" component={PokemonDetail} /> */}
+        <Route path="/pokemon/:pokemonId" component={PokemonDetail} />
         <Route render={() => <Redirect to="/" />} />
       </Switch>
     </React.Suspense>

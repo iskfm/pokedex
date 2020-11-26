@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Loading from './Loading';
 
-const ScreenLoading = () => (
+const LoadingScreen = () => (
   <LoadingContainer>
     <Loading />
   </LoadingContainer>
@@ -18,4 +18,4 @@ const LoadingContainer = styled('div')`
   width: 100%;
 `;
 
-export default ScreenLoading;
+export default LoadingScreen;

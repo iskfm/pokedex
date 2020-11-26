@@ -1,12 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import { get } from 'lodash';
+import styled from 'styled-components';
 import Card from './components/Card';
 
 import api from '../../utils/api';
 import { GetPokemon } from '../../utils/formatter/index';
 
-import { Container, Row, Col } from '../../components/Grid';
+import { Container, Row, Col } from '../../components/grid';
 // import { Filter, List, LoadMore } from '../components';
 
 const Pokemon = ({ match }) => {
@@ -22,7 +23,7 @@ const Pokemon = ({ match }) => {
   }, [match]);
 
   return (
-    <>
+    <Section>
       <Container>
         <Row>
           {data.map((item) => (
@@ -33,7 +34,7 @@ const Pokemon = ({ match }) => {
         </Row>
       </Container>
       {console.log('test', isLoading)}
-    </>
+    </Section>
     // <Container>
     //   <Filter />
     //   <List data={data} />
@@ -41,5 +42,9 @@ const Pokemon = ({ match }) => {
     // </Container>
   );
 };
+
+const Section = styled('div')`
+  padding: 80px 0;
+`;
 
 export default withRouter(Pokemon);
