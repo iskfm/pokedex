@@ -1,0 +1,13 @@
+{
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "prettier.singleQuote": true,
+  "eslint.format.enable": true,
+}
