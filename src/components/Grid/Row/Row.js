@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import styled from 'styled-components';
 
 import css from './css';
@@ -10,22 +11,22 @@ const Row = styled.div.attrs()`
   margin-right: -${(p) => {
       if (
         !p.theme ||
-        !p.theme.styledBootstrapGrid ||
-        !p.theme.styledBootstrapGrid.getRowPadding
+        !p.theme.styledGrid ||
+        !p.theme.styledGrid.getRowPadding
       ) {
         return 12;
       }
-      return p.theme.styledBootstrapGrid.getRowPadding();
+      return p.theme.styledGrid.getRowPadding();
     }}px;
   margin-left: -${(p) => {
       if (
         !p.theme ||
-        !p.theme.styledBootstrapGrid ||
-        !p.theme.styledBootstrapGrid.getRowPadding
+        !p.theme.styledGrid ||
+        !p.theme.styledGrid.getRowPadding
       ) {
         return 12;
       }
-      return p.theme.styledBootstrapGrid.getRowPadding();
+      return p.theme.styledGrid.getRowPadding();
     }}px;
   @media (max-width: 576px) {
     margin-right: -16px;

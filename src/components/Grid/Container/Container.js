@@ -5,22 +5,22 @@ const Container = styled.div.attrs()`
   padding-right: ${(p) => {
     if (
       !p.theme ||
-      !p.theme.styledBootstrapGrid ||
-      !p.theme.styledBootstrapGrid.getContainerPadding
+      !p.theme.styledGrid ||
+      !p.theme.styledGrid.getContainerPadding
     ) {
       return 12;
     }
-    return p.theme.styledBootstrapGrid.getContainerPadding();
+    return p.theme.styledGrid.getContainerPadding();
   }}px;
   padding-left: ${(p) => {
     if (
       !p.theme ||
-      !p.theme.styledBootstrapGrid ||
-      !p.theme.styledBootstrapGrid.getContainerPadding
+      !p.theme.styledGrid ||
+      !p.theme.styledGrid.getContainerPadding
     ) {
       return 12;
     }
-    return p.theme.styledBootstrapGrid.getContainerPadding();
+    return p.theme.styledGrid.getContainerPadding();
   }}px;
   margin-right: auto;
   margin-left: auto;

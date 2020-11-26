@@ -2,24 +2,28 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { get } from 'lodash';
 import styled from 'styled-components';
-import { Card, Load } from './components';
+import { Card } from '../list/components';
 
 import api from '../../utils/api';
-import { GetPokemon } from '../../utils/formatter/index';
 
 import { Container, Row, Col } from '../../components/grid';
+import { LoadingScreen } from '../../components/loading';
 
 const Pokemon = ({ match }) => {
-  const page = get(match, 'params.page', '');
+  const page = get(match, 'params.type', '');
   const [data, setData] = React.useState([]);
   const [isLoading, setLoading] = React.useState(false);
 
   React.useEffect(() => {
     setLoading(true);
-    api(GetPokemon(page))
-      .then((response) => setData(response.results))
+    api(`/type/${page}`)
+      .then((response) => setData(response.pokemon.map((item) => item.pokemon)))
       .finally(() => setLoading(false));
   }, [match]);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
 
   return (
     <Section>
@@ -32,7 +36,6 @@ const Pokemon = ({ match }) => {
           ))}
         </Row>
       </Container>
-      <Load isLoading={isLoading} />
     </Section>
   );
 };

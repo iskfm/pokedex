@@ -1,12 +1,13 @@
+/* eslint-disable import/no-unresolved */
 import styled from 'styled-components';
 
 import css from './css';
 
 const getGridColumns = (theme) => {
-  if (!theme.styledBootstrapGrid) {
+  if (!theme.styledGrid) {
     return 12;
   }
-  return theme.styledBootstrapGrid.getGridColumns();
+  return theme.styledGrid.getGridColumns();
 };
 
 const Col = styled.div.attrs()`
@@ -14,24 +15,16 @@ const Col = styled.div.attrs()`
   width: 100%;
   min-height: 1px;
   padding-right: ${(p) => {
-    if (
-      !p.theme ||
-      !p.theme.styledBootstrapGrid ||
-      !p.theme.styledBootstrapGrid.getColPadding
-    ) {
+    if (!p.theme || !p.theme.styledGrid || !p.theme.styledGrid.getColPadding) {
       return 12;
     }
-    return p.theme.styledBootstrapGrid.getColPadding();
+    return p.theme.styledGrid.getColPadding();
   }}px;
   padding-left: ${(p) => {
-    if (
-      !p.theme ||
-      !p.theme.styledBootstrapGrid ||
-      !p.theme.styledBootstrapGrid.getColPadding
-    ) {
+    if (!p.theme || !p.theme.styledGrid || !p.theme.styledGrid.getColPadding) {
       return 12;
     }
-    return p.theme.styledBootstrapGrid.getColPadding();
+    return p.theme.styledGrid.getColPadding();
   }}px;
   @media (max-width: 576px) {
     padding-right: 16px;
@@ -47,6 +40,11 @@ const Col = styled.div.attrs()`
   ${(p) => p.auto && css.col('auto', 0)}
   ${(p) => p.alignSelf && css.alignSelf[p.alignSelf]}
   ${(p) => p.order && css.order(p.order)}
+  @media (max-width: 576px) {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 `;
 
 export default Col;

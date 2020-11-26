@@ -22,14 +22,15 @@ const CardItem = styled('div')`
   background: white;
   border-radius: 8px;
   margin-bottom: 24px;
-  // &:hover {
-  //   filter: drop-shadow(0px 4px 8px rgba(137, 148, 159, 0.32));
-  // }
+  border: 1px solid #e7f1fc;
 `;
 
 const CardItemImageContainer = styled('div')`
   height: 180px;
   padding: 30px 10px;
+  background: #e7f1fc;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 `;
 
 const CardItemImage = styled('img')`
