@@ -1,6 +1,6 @@
 const API_URL = process.env.API || 'https://pokeapi.co/api/v2';
 
-const api = async (url) => {
+const api = (url) => {
   const cachedResponse = localStorage.getItem(url);
   const endpoint = `${API_URL}${url}`;
 

@@ -2,25 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
 
+import { RenderId } from '../../../utils/formatter/index';
 // import { colors, fonts } from 'components/provider';
 // import { ResponsiveFlex } from 'modules/components';
 
-// import { renderPokemonId, renderPokemonImage } from 'utils/formatter';
+// import { renderPokemonId } from 'utils/formatter';
 
 // const Card = ({ data, history }) => {
-const Card = () => {
-  // const pokemonId = renderPokemonId(data);
+const Card = ({ data, history }) => {
+  const pokemonId = RenderId(data);
   return (
-    <CardItem>
+    <CardItem onClick={() => history.push(`/pokemon/${pokemonId}`)}>
       {/* <CardContainer> */}
-      {/* onClick={() => history.push(`/pokemon/${pokemonId}`)} */}
       <CardItemImageContainer>
         {/* <CardItemImage src={renderPokemonImage(pokemonId)} /> */}
         <CardItemImage src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" />
       </CardItemImageContainer>
       <CardContent>
-        <CardContentTitle>bulbasaur</CardContentTitle>
-        {/* <CardContentTitle>{data.name}</CardContentTitle> */}
+        <CardContentTitle>{data.name}</CardContentTitle>
       </CardContent>
       {/* </CardContainer> */}
     </CardItem>
@@ -47,6 +46,7 @@ const CardItem = styled('div')`
 // padding: 20px;
 const CardItemImageContainer = styled('div')`
   height: 180px;
+  padding: 30px 10px;
 `;
 
 const CardItemImage = styled('img')`

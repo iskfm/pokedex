@@ -1,30 +1,38 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import { get } from 'lodash';
 import Card from './components/Card';
-// import { get } from 'lodash';
 
-// import api from '../../utils/api/api';
-// import getAllPokemon from '../../utils/formatter';
+import api from '../../utils/api';
+import { GetPokemon } from '../../utils/formatter/index';
 
-// import { Container } from 'modules/components';
+import { Container, Row, Col } from '../../components/Grid';
 // import { Filter, List, LoadMore } from '../components';
 
 const Pokemon = ({ match }) => {
-  // const page = get(match, 'params.page', '');
-  // const [data, setData] = React.useState([]);
+  const page = get(match, 'params.page', '');
+  const [data, setData] = React.useState([]);
   const [isLoading, setLoading] = React.useState(false);
 
-  // api(getAllPokemon(page))
-  //   .then((response) => setData(response.results))
-  //   .finally(() => setLoading(false));
   React.useEffect(() => {
     setLoading(true);
+    api(GetPokemon(page))
+      .then((response) => setData(response.results))
+      .finally(() => setLoading(false));
   }, [match]);
 
   return (
     <>
-      {console.log(isLoading)}
-      <Card />
+      <Container>
+        <Row>
+          {data.map((item) => (
+            <Col col={3} key={item.name}>
+              <Card data={item} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+      {console.log('test', isLoading)}
     </>
     // <Container>
     //   <Filter />
