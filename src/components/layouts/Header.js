@@ -14,7 +14,7 @@ const Header = ({ history, match }) => {
 
   return (
     <HeaderContainer>
-      <Logo onClick={() => history.push('/')}>pokedex</Logo>
+      <Logo onClick={() => history.push('/')}>Pokédex</Logo>
       <StyledUl>
         <DropDownLi>
           <Dropbtn>Ability</Dropbtn>
